@@ -1,0 +1,12 @@
+.site-menu-link {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: #474747;
+  }
+
+  &:active {
+    color: rgba($color: #474747, $alpha: 0.5);
+  }
+}
