@@ -1,0 +1,12 @@
+.site-menu {
+  width: 510px;
+  list-style: none;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.site-menu__item:not(:last-child) {
+  margin-right: 40px;
+}
