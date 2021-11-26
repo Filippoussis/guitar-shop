@@ -1,0 +1,50 @@
+.contacts {
+  width: 124px;
+  margin-left: auto;
+  margin-right: 18px;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.1em;
+  color: white;
+}
+
+.contacts h4 {
+  margin-top: 10px;
+  margin-bottom: -6px;
+  font-size: 14px;
+  line-height: 44px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  color: white;
+}
+
+.contacts address {
+  font-style: normal;
+}
+
+.contacts__regime {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.contacts__tel {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+.contacts__phone-icon {
+  margin-right: 5px;
+}
+
+.contacts__clock {
+  display: flex;
+  align-items: center;
+}
+
+.contacts__clock-icon {
+  margin-right: 5px;
+}
