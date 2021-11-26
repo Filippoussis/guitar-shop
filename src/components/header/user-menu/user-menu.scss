@@ -1,0 +1,21 @@
+.user-menu {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.user-menu__item:not(:last-child) {
+  margin-right: 35px;
+}
+
+.user-menu__link {
+  color: black;
+
+  &:hover {
+    color: #474747;
+  }
+
+  &:active {
+    color: rgba($color: #474747, $alpha: 0.5);
+  }
+}
