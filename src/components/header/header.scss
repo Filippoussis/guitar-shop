@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.header {
+  padding-left: calc(50% - 510px);
+  padding-right: calc(50% - 510px);
+  background-color: $brown-light-color;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
