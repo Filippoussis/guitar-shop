@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {useSelector, useDispatch} from 'react-redux';
 import {selectActivePage, setActivePage} from '../../../../store/slices/guitars';
 
@@ -13,7 +14,7 @@ function PageItem({item}) {
     if (pageValue !== '...') {
       dispatch(setActivePage(pageValue));
     }
-  }
+  };
 
   const activeClassMod = item === activePage ? 'page-item--active' : '';
 
@@ -21,5 +22,9 @@ function PageItem({item}) {
     <button className={`page-item ${activeClassMod}`} onClick={() => handleClick(item)}>{item}</button>
   );
 }
+
+PageItem.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 
 export default PageItem;
