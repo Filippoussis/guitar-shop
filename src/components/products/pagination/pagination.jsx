@@ -13,7 +13,7 @@ function Pagination ({pagesCount, paginationTemplate}) {
   const dispatch = useDispatch();
   const activePage = useSelector(selectActivePage);
 
-  const items = paginationTemplate.map((item, index) => <li key={`pag-${index + 1}`} className="pagination__item"><PageItem item={item}/></li>)
+  const items = paginationTemplate.map((item, index) => <li key={`pag-${index + 1}`} className="pagination__item"><PageItem item={item}/></li>);
 
   return (
     <div className="pagination">
@@ -26,6 +26,7 @@ function Pagination ({pagesCount, paginationTemplate}) {
 
 Pagination.propTypes = {
   paginationTemplate: PropTypes.array.isRequired,
+  pagesCount: PropTypes.number.isRequired,
 };
 
 export default Pagination;
