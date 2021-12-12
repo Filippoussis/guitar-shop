@@ -1,0 +1,98 @@
+.modal-add-to-cart {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color: #48494d, $alpha: 0.7);
+  z-index: 1000;
+}
+
+.modal-add-to-cart__content {
+  position: relative;
+  width: 740px;
+  height: 230px;
+  padding: 20px 50px;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0px 5px 6px rgba(63, 63, 63, 0.2);
+}
+
+.modal-add-to-cart__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.modal-add-to-cart__title {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #474747;
+}
+
+.modal-add-to-cart__item {
+  display: flex;
+}
+
+.modal-add-to-cart__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-add-to-cart__picture {
+  margin-right: 40px;
+}
+
+.modal-add-to-cart__description h4 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: black;
+}
+
+.modal-add-to-cart__text {
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.05em;
+  color: black;
+}
+
+.modal-add-to-cart__price {
+  font-size: 20px;
+  line-height: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: black;
+}
+
+.modal-add-to-cart__add-button {
+  appearance: none;
+  padding: 14px 24px;
+  border-radius: 2px;
+  border: none;
+  font-size: 16px;
+  line-height: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background-color: #E27F00;
+  color: white;
+  cursor: pointer;
+}
