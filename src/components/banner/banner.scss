@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.banner {
+  position: relative;
+  text-align: right;
+  overflow-x: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 54px;
+    width: 100%;
+    height: 4px;
+    background-color: $brown-color;
+    box-shadow: 0 14px 0 $brown-color, 0 28px 0 $brown-color, 0 42px 0 $brown-color, 0 56px 0 $brown-color, 0 70px 0 $brown-color;
+    z-index: -1;
+  }
+}
+
+.banner__image {
+  display: flex;
+  margin-left: auto;
+}
