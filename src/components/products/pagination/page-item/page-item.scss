@@ -1,0 +1,19 @@
+.page-item {
+  appearance: none;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  border: 0.7px solid #9F9E9E;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+
+  &--active {
+    background-color: #585757;
+    color: white;
+  }
+}
