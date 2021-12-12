@@ -8,7 +8,7 @@ import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 
 import {addItem, deleteItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
 
-import {setNoBodyScroll} from '../../../utils';
+import {setNoBodyScroll, setBodyScroll} from '../../../utils';
 
 import './cart-item.scss';
 
@@ -33,6 +33,7 @@ function CartItem({item, count, sum}) {
     }
 
     dispatch(decrementItem(id));
+    setBodyScroll();
   };
 
   return (

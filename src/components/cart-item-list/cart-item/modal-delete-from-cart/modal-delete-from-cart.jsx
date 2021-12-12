@@ -42,15 +42,17 @@ function ModalDeleteFromCart({item}) {
   const handleClickButtonDelete = () => {
     dispatch(deleteItem(id));
     dispatch(setActiveItem({}));
+    setBodyScroll();
   };
 
   const handleClickButtonContinue = () => {
     dispatch(setActiveItem({}));
+    setBodyScroll();
   };
 
   const handleClickClose = () => {
-    setBodyScroll();
     dispatch(setActiveItem({}));
+    setBodyScroll();
   };
 
   return (
