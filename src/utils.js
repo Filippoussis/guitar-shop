@@ -23,18 +23,18 @@ const setPaginationTemplate = (pagesCount, activePage) => {
       template.push(i);
     }
   } else if (activePage === 1 || activePage === 2) {
-      template = [1, 2, '...', pagesCount];
-    } else if (activePage === pagesCount || activePage === pagesCount - 1) {
-      template = [1, '...', pagesCount - 1, pagesCount];
-    } else {
-      template = [1, '...', activePage, '...', pagesCount];
-    }
+    template = [1, 2, '...', pagesCount];
+  } else if (activePage === pagesCount || activePage === pagesCount - 1) {
+    template = [1, '...', pagesCount - 1, pagesCount];
+  } else {
+    template = [1, '...', activePage, '...', pagesCount];
+  }
 
   return template;
 };
 
 const getCurrentStrings = (currentTypes) => {
-  let totalStrings = [];
+  const totalStrings = [];
   for (const type of currentTypes) {
     totalStrings.push(...GUITAR_TYPE[type].strings);
   }
@@ -44,11 +44,18 @@ const getCurrentStrings = (currentTypes) => {
 
 const getValueNumber = (value) => +value.toString().replace(/[^\d]/g, '');
 
-const setNoBodyScroll = () => document.body.style.overflow = 'hidden';
-const setBodyScroll = () => document.body.style.overflow = 'scroll';
+const setNoBodyScroll = () => {
+  document.body.style.overflow = 'hidden';
+};
+
+const setBodyScroll = () => {
+  document.body.style.overflow = 'scroll';
+};
 
 const getDiscount = (total, promoCode) => {
   let result = total;
+  const maxDiscount = total * 0.3;
+
   switch (promoCode) {
     case 'GITARAHIT':
       result = total * 0.9;
@@ -57,7 +64,6 @@ const getDiscount = (total, promoCode) => {
       result = total - 700;
       break;
     case 'GITARA2020':
-      const maxDiscount = total * 0.3;
       result = 3000 > maxDiscount ? total - maxDiscount : total - 3000;
       break;
     default:
