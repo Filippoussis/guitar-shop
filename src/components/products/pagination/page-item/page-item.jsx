@@ -24,7 +24,10 @@ function PageItem({item}) {
 }
 
 PageItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 export default PageItem;
