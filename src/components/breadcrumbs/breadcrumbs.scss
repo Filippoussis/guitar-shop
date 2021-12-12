@@ -1,0 +1,35 @@
+.breadcrumbs {
+  list-style: none;
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding-left: 0;
+
+  &--cart {
+    margin-bottom: 25px;
+  }
+}
+
+.breadcrumbs__item {
+  position: relative;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #474747;
+}
+
+.breadcrumbs__item:not(:last-child) {
+  margin-right: 40px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../../images/icon/arrow-right.svg');
+    background-repeat: no-repeat;
+  }
+}
