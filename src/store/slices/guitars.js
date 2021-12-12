@@ -76,15 +76,15 @@ const guitarsFilter = ({guitars}) => {
   }
 
   return result;
-}
+};
 
 const guitarsSort = (state) => {
   const filteredGuitars = guitarsFilter(state);
-  const sortDirection = state.guitars.sortDirection;
-  const sortType = state.guitars.sortType;
+  const currentSortDirection = state.guitars.sortDirection;
+  const currentSortType = state.guitars.sortType;
 
-  return sortType !== '' ? sortGuitars(filteredGuitars, sortDirection, sortType) : filteredGuitars;
-}
+  return currentSortType !== '' ? sortGuitars(filteredGuitars, currentSortDirection, currentSortType) : filteredGuitars;
+};
 
 const selectSlice = (state) => {
   const guitarsList = guitarsSort(state);
@@ -94,14 +94,12 @@ const selectSlice = (state) => {
 
   if (guitarsList.length !== 0) {
     const startPrice = guitarsList[0].price;
-    aggregatedPrice = guitarsList.reduce((acc, curr) => {
-      return {
-        minPrice: curr.price < acc.minPrice ? curr.price : acc.minPrice,
-        maxPrice: curr.price > acc.maxPrice ? curr.price : acc.maxPrice,
-      }
-    }, {
-        minPrice: startPrice,
-        maxPrice: startPrice,
+    aggregatedPrice = guitarsList.reduce((acc, curr) => ({
+      minPrice: curr.price < acc.minPrice ? curr.price : acc.minPrice,
+      maxPrice: curr.price > acc.maxPrice ? curr.price : acc.maxPrice,
+    }), {
+      minPrice: startPrice,
+      maxPrice: startPrice,
     });
   }
 
@@ -112,7 +110,7 @@ const selectSlice = (state) => {
       pagesCount,
       template: setPaginationTemplate(pagesCount, state.guitars.activePage),
     },
-  }
+  };
 };
 
 const selectActivePage = (state) => state.guitars.activePage;
