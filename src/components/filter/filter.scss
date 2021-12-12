@@ -1,0 +1,217 @@
+.guitars-filter {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+}
+
+.guitars-filter h3 {
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+}
+
+.guitar-price {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 0.7px solid #DDDADA;
+}
+
+.guitar-price__legend {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  color: black;
+}
+
+.guitar-price__controls {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 1px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #585757;
+  }
+}
+
+.guitar-price__input {
+  width: 84px;
+  height: 28px;
+  border: 0.7px solid #9F9E9E;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 10px;
+  letter-spacing: 0.05em;
+}
+
+.guitar-price__input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.guitar-type {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 0.7px solid #DDDADA;
+  font-size: 16px;
+  line-height: 19px;
+  color: black;
+}
+
+.guitar-type__legend {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  color: black;
+}
+
+.guitar-type__controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.guitar-type label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.guitar-type label:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.guitar-type__checkbox {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  border: 0.7px solid #9F9E9E;
+  border-radius: 2px;
+}
+
+.guitar-type__checkbox::before {
+  display: none;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url('../../images/icon/checkbox.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+.guitar-type__input:checked + .guitar-type__checkbox::before {
+  display: block;
+}
+
+.guitar-type__input:hover + .guitar-type__checkbox {
+  border-color: #585757;
+}
+
+.guitar-type__input:focus + .guitar-type__checkbox {
+   outline: 1px solid #585757;
+}
+
+.guitar-type__input:active + .guitar-type__checkbox {
+  border-color: #C1C1C1;
+}
+
+.guitar-strings {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 0.7px solid #DDDADA;
+  font-size: 16px;
+  line-height: 19px;
+  color: black;
+}
+
+.guitar-strings__legend {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  color: black;
+}
+
+.guitar-strings__controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.guitar-strings label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.guitar-strings label:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.guitar-strings__checkbox {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  border: 0.7px solid #9F9E9E;
+  border-radius: 2px;
+}
+
+.guitar-strings__checkbox::before {
+  display: none;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-image: url('../../images/icon/checkbox.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+}
+
+.guitar-strings__input:checked + .guitar-strings__checkbox::before {
+  display: block;
+}
+
+.guitar-strings__input:hover + .guitar-strings__checkbox {
+  border-color: #585757;
+}
+
+.guitar-strings__input:focus + .guitar-strings__checkbox {
+   outline: 1px solid #585757;
+}
+
+.guitar-strings__input:active + .guitar-strings__checkbox {
+  border-color: #C1C1C1;
+}
+
+.guitar-strings__input:disabled + .guitar-strings__checkbox {
+  border-color: #DDDDDD;
+  background-color: #F7F3F3;
+}
+
+.guitar-strings__input:disabled ~ .guitar-strings__label {
+  color: #DDDDDD;
+}
