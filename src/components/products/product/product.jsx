@@ -9,12 +9,19 @@ import {setActiveItem} from '../../../store/slices/cart';
 
 import {ReactComponent as BasketIcon} from '../../../images/icon/basket.svg';
 
+import {setNoBodyScroll} from '../../../utils';
+
 import './product.scss';
 
 function Product({item}) {
 
   const dispatch = useDispatch();
   const {title, popular, price, smallImage, bigImage} = item;
+
+  const handleClickButton = () => {
+    dispatch(setActiveItem(item));
+    setNoBodyScroll();
+  };
 
   return (
     <article className="product">
@@ -38,7 +45,7 @@ function Product({item}) {
       </div>
       <div className="product__controls">
         <Link to="#" className="product__link product__link--detailed">Подробнее</Link>
-        <Link to="#" className="product__link product__link--buy" onClick={() => dispatch(setActiveItem(item))}>
+        <Link to="#" className="product__link product__link--buy" onClick={handleClickButton}>
           <BasketIcon className="product__basket-icon" />
           Купить
         </Link>

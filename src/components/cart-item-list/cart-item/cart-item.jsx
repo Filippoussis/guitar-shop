@@ -8,6 +8,8 @@ import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 
 import {addItem, deleteItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
 
+import {setNoBodyScroll} from '../../../utils';
+
 import './cart-item.scss';
 
 const GUITAR_TYPE = {
@@ -26,6 +28,7 @@ function CartItem({item, count, sum}) {
   const handleDecrementCount = () => {
     if (count === 1) {
       dispatch(setActiveItem(item));
+      setNoBodyScroll();
       return;
     }
 
