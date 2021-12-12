@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
 
 .header {
+  margin-bottom: -30px;
   padding-left: calc(50% - 510px);
   padding-right: calc(50% - 510px);
   background-color: $brown-light-color;
