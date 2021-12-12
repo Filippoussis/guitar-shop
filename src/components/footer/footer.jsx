@@ -5,7 +5,10 @@ import About from './about/about';
 import CatalogMenu from './catalog-menu/catalog-menu';
 import InfoMenu from './info-menu/info-menu';
 import Contacts from './contacts/contacts';
+
 import {ReactComponent as Logo} from '../../images/logo.svg';
+import bigGuitar1xWebp from '../../images/design/big-guitar1x.webp';
+import bigGuitar2xWebp from '../../images/design/big-guitar2x.webp';
 
 import './footer.scss';
 
@@ -24,6 +27,15 @@ function Footer() {
           <Contacts />
         </div>
       </div>
+      <img
+        className="footer__image"
+        src={bigGuitar1xWebp}
+        srcSet={bigGuitar2xWebp}
+        alt="Изображение стратокастера"
+        width="828"
+        height="282"
+      >
+      </img>
     </section>
   );
 }
