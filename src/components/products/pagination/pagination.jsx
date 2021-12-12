@@ -17,9 +17,9 @@ function Pagination ({pagesCount, paginationTemplate}) {
 
   return (
     <div className="pagination">
-      {activePage !== 1 && <button className="pagination__button pagination__button--back" onClick={() => dispatch(setActivePage(activePage - 1))}>Назад</button>}
+      {pagesCount !== 0 && activePage !== 1 && <button className="pagination__button pagination__button--back" onClick={() => dispatch(setActivePage(activePage - 1))}>Назад</button>}
       <ul className="pagination__list">{items}</ul>
-      {activePage !== pagesCount && <button className="pagination__button pagination__button--forward" onClick={() => dispatch(setActivePage(activePage + 1))}>Далее</button>}
+      {pagesCount !== 0 && activePage !== pagesCount && <button className="pagination__button pagination__button--forward" onClick={() => dispatch(setActivePage(activePage + 1))}>Далее</button>}
     </div>
   );
 }
