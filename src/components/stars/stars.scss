@@ -1,0 +1,12 @@
+.stars {
+  list-style: none;
+  display: flex;
+  margin-right: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.stars__item:not(:last-child) {
+  margin-right: 2px;
+}
