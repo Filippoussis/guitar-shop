@@ -14,7 +14,9 @@ function Header() {
   return (
     <section className="header">
       <div className="header__wrapper">
-        <Link to={AppRoute.ROOT}><Logo style={{color: 'black'}} /></Link>
+        <Link to={AppRoute.ROOT} aria-label="Logo Guitar Shop">
+          <Logo style={{color: 'black'}} />
+        </Link>
         <SiteMenu />
         <UserMenu />
       </div>

@@ -10,13 +10,13 @@ import './social.scss';
 function Social() {
   return (
     <div className="social">
-      <Link to='#'>
+      <Link to='#' aria-label="Facebook">
         <Facebook />
       </Link>
-      <Link to='#'>
+      <Link to='#' aria-label="Instagram">
         <Instagram />
       </Link>
-      <Link to='#'>
+      <Link to='#' aria-label="Twitter">
         <Twitter />
       </Link>
     </div>

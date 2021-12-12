@@ -17,13 +17,13 @@ function UserMenu() {
 
   return (
     <div className="user-menu">
-      <Link to='/map' className="user-menu__item">
+      <Link to='/map' className="user-menu__item" aria-label="Icon Map">
         <MapIcon className="user-menu__link" />
       </Link>
-      <Link to='/search' className="user-menu__item">
+      <Link to='/search' className="user-menu__item" aria-label="Icon Search">
         <SearchIcon className="user-menu__link" />
       </Link>
-      <Link to='/cart' className="user-menu__item user-menu__item--cart">
+      <Link to='/cart' className="user-menu__item user-menu__item--cart" aria-label="Icon Cart">
         <CartIcon className="user-menu__link" />
         {!isCartEmpty && <span className="user-menu__cart-item-count">{cartItemCount}</span>}
       </Link>
