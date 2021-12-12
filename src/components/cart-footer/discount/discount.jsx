@@ -19,7 +19,7 @@ function Discount() {
     if (!isValidCode) {
       setStateCode(true);
     }
-  }
+  };
 
   const handleButtonClick = () => {
     const inputValue = inputField.current.value.trim();
@@ -42,8 +42,7 @@ function Discount() {
           ref={inputField}
           onFocus={handleInputFocus}
         />
-        <button
-          className="discount__controls__button" onClick={handleButtonClick}>Применить купон</button>
+        <button className="discount__controls__button" onClick={handleButtonClick}>Применить купон</button>
       </div>
       {!isValidCode && <InvalidMessage />}
     </div>
