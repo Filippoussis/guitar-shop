@@ -14,7 +14,7 @@ const GUITAR_TYPE = {
   'acoustic': 'Aкустическая гитара',
   'electro': 'Электрогитара',
   'ukulele': 'Укулеле',
-}
+};
 
 function CartItem({item, count, sum}) {
 
