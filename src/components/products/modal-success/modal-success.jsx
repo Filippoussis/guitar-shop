@@ -18,7 +18,7 @@ function ModalSuccess() {
   const handleClickGoToCart = () => {
     dispatch(setSuccess(false));
     navigate(AppRoute.CART);
-  }
+  };
 
   const handleClickClose = () => {
     setBodyScroll();
