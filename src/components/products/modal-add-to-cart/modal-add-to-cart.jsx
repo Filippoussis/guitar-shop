@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import {ReactComponent as CloseButton} from '../../../images/icon/close.svg';
 
-import {setBodyScroll} from '../../../utils';
-
 import {addItem, setActiveItem, setSuccess} from '../../../store/slices/cart';
+
+import {setBodyScroll} from '../../../utils';
+import {KEY_CODE_ESCAPE} from '../../../const';
 
 import './modal-add-to-cart.scss';
 
@@ -20,6 +21,21 @@ function ModalAddToCart({item}) {
   const {title, price, smallImage, bigImage, article, type, strings} = item;
 
   const dispatch = useDispatch();
+
+  const handleKeyDownEsc = useCallback((event) => {
+    if(event.keyCode === KEY_CODE_ESCAPE) {
+      setBodyScroll();
+      dispatch(setActiveItem({}));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDownEsc);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDownEsc);
+    };
+  }, [handleKeyDownEsc]);
 
   const handleClickAddButton = () => {
     dispatch(addItem(item));

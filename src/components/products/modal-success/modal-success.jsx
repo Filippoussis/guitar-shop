@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import {ReactComponent as CloseButton} from '../../../images/icon/close.svg';
@@ -6,7 +6,7 @@ import {ReactComponent as CloseButton} from '../../../images/icon/close.svg';
 import {setSuccess} from '../../../store/slices/cart';
 
 import {setBodyScroll} from '../../../utils';
-import {AppRoute} from '../../../const';
+import {AppRoute, KEY_CODE_ESCAPE} from '../../../const';
 
 import './modal-success.scss';
 
@@ -15,7 +15,23 @@ function ModalSuccess() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const handleKeyDownEsc = useCallback((event) => {
+    if(event.keyCode === KEY_CODE_ESCAPE) {
+      setBodyScroll();
+      dispatch(setSuccess(false));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDownEsc);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDownEsc);
+    };
+  }, [handleKeyDownEsc]);
+
   const handleClickGoToCart = () => {
+    setBodyScroll();
     dispatch(setSuccess(false));
     navigate(AppRoute.CART);
   };
