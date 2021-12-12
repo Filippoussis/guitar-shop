@@ -61,7 +61,7 @@ function Filter() {
     }
   };
 
-   const handleChangeToPrice = (evt) => {
+  const handleChangeToPrice = (evt) => {
     const newToPrice = getValueNumber(evt.target.value);
     setToPriceState(newToPrice);
   };
@@ -73,21 +73,17 @@ function Filter() {
   };
 
   const handleChangeGuitarType = (evt) => {
-    setTypeState((state) => {
-      return {
-        ...state,
-        [evt.target.name]: evt.target.checked,
-      };
-    });
-  }
+    setTypeState((state) => ({
+      ...state,
+      [evt.target.name]: evt.target.checked,
+    }));
+  };
 
   const handleChangeStringsCount = (evt) => {
-    setStringsState((state) => {
-      return {
-        ...state,
-        [evt.target.name]: evt.target.checked,
-      }
-    });
+    setStringsState((state) => ({
+      ...state,
+      [evt.target.name]: evt.target.checked,
+    }));
   };
 
   const currentTypes = Object.entries(typeState).filter(([_, value]) => value === true).map(([key]) => key);
@@ -118,9 +114,8 @@ function Filter() {
       <div className="guitar-type">
         <p className="guitar-type__legend">Тип гитар</p>
         <div className="guitar-type__controls">
-        {
-          Object.entries(GUITAR_TYPE).map(([key, {title}]) => {
-            return (
+          {
+            Object.entries(GUITAR_TYPE).map(([key, {title}]) => (
               <label key={key} htmlFor={key}>
                 <input
                   className="guitar-type__input visually-hidden"
@@ -129,9 +124,8 @@ function Filter() {
                 <span className="guitar-type__checkbox"></span>
                 <span className="guitar-type__label">{title}</span>
               </label>
-            );
-          })
-        }
+            ))
+          }
         </div>
       </div>
       <div className="guitar-strings">
