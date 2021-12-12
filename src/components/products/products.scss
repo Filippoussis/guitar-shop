@@ -1,0 +1,19 @@
+.products {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.products__list {
+  display: grid;
+  grid-template-columns: 220px 220px 220px;
+  column-gap: 20px;
+  row-gap: 28px;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.products__pagination {
+  display: flex;
+}
