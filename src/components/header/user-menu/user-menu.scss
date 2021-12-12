@@ -19,3 +19,12 @@
     color: rgba($color: #474747, $alpha: 0.5);
   }
 }
+
+.user-menu__cart-item-count {
+  position: absolute;
+  margin-left: 4px;
+  text-decoration: none;
+  font-size: 10px;
+  line-height: 12px;
+  color: #F20505;
+}
