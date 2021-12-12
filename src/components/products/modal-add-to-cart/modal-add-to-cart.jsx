@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import {ReactComponent as CloseButton} from '../../../images/icon/close.svg';
 
@@ -12,7 +13,7 @@ const GUITAR_TYPE = {
   'acoustic': 'Aкустическая гитара',
   'electro': 'Электрогитара',
   'ukulele': 'Укулеле',
-}
+};
 
 function ModalAddToCart({item}) {
 
@@ -65,5 +66,9 @@ function ModalAddToCart({item}) {
     </div>
   );
 }
+
+ModalAddToCart.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 
 export default ModalAddToCart;
