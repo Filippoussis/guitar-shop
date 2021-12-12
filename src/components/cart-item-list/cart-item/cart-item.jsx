@@ -6,7 +6,7 @@ import ModalDeleteFromCart from './modal-delete-from-cart/modal-delete-from-cart
 
 import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 
-import {addItem, deleteItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
+import {addItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
 
 import {setNoBodyScroll, setBodyScroll} from '../../../utils';
 
@@ -25,7 +25,12 @@ function CartItem({item, count, sum}) {
 
   const {id, title, price, smallImage, bigImage, article, type, strings} = item;
 
-  const handleDecrementCount = () => {
+  const handleDeleteButton = () => {
+    dispatch(setActiveItem(item));
+    setNoBodyScroll();
+  };
+
+  const handleDecrementButton = () => {
     if (count === 1) {
       dispatch(setActiveItem(item));
       setNoBodyScroll();
@@ -44,7 +49,7 @@ function CartItem({item, count, sum}) {
             <button
               className="cart-item__button-delete"
               aria-label="Кнопка Удалить из корзины"
-              onClick={() => dispatch(deleteItem(id))}
+              onClick={handleDeleteButton}
             >
               <DeleteButton />
             </button>
@@ -68,7 +73,7 @@ function CartItem({item, count, sum}) {
         <div className="cart-item__col cart-item__col--right">
           <p className="cart-item__price cart-item__price--alone">{price.toLocaleString()} &#x20bd;</p>
           <div className="cart-item-counter">
-            <button className="cart-item-counter__button" onClick={handleDecrementCount}>-</button>
+            <button className="cart-item-counter__button" onClick={handleDecrementButton}>-</button>
             <span className="cart-item-counter__value">{count}</span>
             <button className="cart-item-counter__button" onClick={() => dispatch(addItem(item))}>+</button>
           </div>
