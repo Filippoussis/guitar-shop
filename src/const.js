@@ -62,6 +62,8 @@ const BreadcrumbsList = {
   CART: ['Главная', 'Каталог', 'Оформляем'],
 };
 
+const KEY_CODE_ESCAPE = 27;
+
 export {
   MENU_ROUTES,
   CATALOG_ROUTES,
@@ -74,4 +76,5 @@ export {
   AppRoute,
   DISCOUNT_CODES,
   BreadcrumbsList,
+  KEY_CODE_ESCAPE,
 };
