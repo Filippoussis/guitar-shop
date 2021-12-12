@@ -29,11 +29,25 @@ function Sort() {
         </div>
         <div className="sort__arrow">
           <label htmlFor="arrow-up">
-            <input className="sort__arrow-input visually-hidden" type="radio" id="arrow-up" name="sort-arrow" onChange={() => dispatch(sortDirection(SortDirection.ASCENDING))} />
+            <input
+              className="sort__arrow-input visually-hidden"
+              type="radio"
+              id="arrow-up"
+              name="sort-arrow"
+              aria-label="arrow-up"
+              onChange={() => dispatch(sortDirection(SortDirection.ASCENDING))}
+            />
             <span className="sort__arrow-label"><ArrowUp /></span>
           </label>
           <label htmlFor="arrow-down">
-            <input className="sort__arrow-input visually-hidden" type="radio" id="arrow-down" name="sort-arrow" onChange={() => dispatch(sortDirection(SortDirection.DESCENDING))} />
+            <input
+              className="sort__arrow-input visually-hidden"
+              type="radio"
+              id="arrow-down"
+              name="sort-arrow"
+              aria-label="arrow-down"
+              onChange={() => dispatch(sortDirection(SortDirection.DESCENDING))}
+            />
             <span className="sort__arrow-label"><ArrowDown /></span>
           </label>
         </div>
