@@ -74,9 +74,9 @@ function CartItem({item, count, sum}) {
         <div className="cart-item__col cart-item__col--right">
           <p className="cart-item__price cart-item__price--alone">{price.toLocaleString()} &#x20bd;</p>
           <div className="cart-item-counter">
-            <button className="cart-item-counter__button" onClick={handleDecrementButton}>-</button>
+            <button className="cart-item-counter__button" onClick={handleDecrementButton} aria-label="decrement-count">-</button>
             <span className="cart-item-counter__value">{count}</span>
-            <button className="cart-item-counter__button" onClick={() => dispatch(addItem(item))}>+</button>
+            <button className="cart-item-counter__button" onClick={() => dispatch(addItem(item))} aria-label="increment-count">+</button>
           </div>
           <p className="cart-item__price cart-item__price--total">{sum.toLocaleString()} &#x20bd;</p>
         </div>
