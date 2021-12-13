@@ -6,7 +6,6 @@ import {sortGuitars, setPaginationTemplate} from '../../utils';
 
 const initialState = {
   data: guitarsMockData,
-  filtered: [],
   sortDirection: SortDirection.ASCENDING,
   sortType: '',
   types: [],
