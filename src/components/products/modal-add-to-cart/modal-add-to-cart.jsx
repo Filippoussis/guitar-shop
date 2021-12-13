@@ -1,7 +1,8 @@
 import React, {useEffect, useCallback} from 'react';
-import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import FocusTrap from 'focus-trap-react';
+
+import {guitarProp} from '../../../props/guitar';
 
 import {ReactComponent as CloseButton} from '../../../images/icon/close.svg';
 
@@ -88,7 +89,7 @@ function ModalAddToCart({item}) {
 }
 
 ModalAddToCart.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: guitarProp,
 };
 
 export default ModalAddToCart;

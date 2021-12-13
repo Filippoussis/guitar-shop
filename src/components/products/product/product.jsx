@@ -1,7 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+
+import {guitarProp} from '../../../props/guitar';
 
 import Stars from '../../stars/stars';
 
@@ -55,7 +56,7 @@ function Product({item}) {
 }
 
 Product.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: guitarProp,
 };
 
 export default Product;

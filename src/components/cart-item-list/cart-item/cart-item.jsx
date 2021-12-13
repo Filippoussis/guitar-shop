@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {useDispatch, useSelector} from 'react-redux';
 
+import {guitarProp} from '../../../props/guitar';
+
 import ModalDeleteFromCart from './modal-delete-from-cart/modal-delete-from-cart';
 
 import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
@@ -87,7 +89,7 @@ function CartItem({item, count, sum}) {
 }
 
 CartItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: guitarProp,
   count: PropTypes.number.isRequired,
   sum: PropTypes.number.isRequired,
 };
