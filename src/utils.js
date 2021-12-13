@@ -15,25 +15,25 @@ const sortGuitars = (items, direction, type) => {
 };
 
 const setPaginationTemplate = (pagesCount, activePage) => {
-  let template = [];
+  let templateItems = [];
 
   if (pagesCount <= 1) {
-    return template;
+    return templateItems;
   }
 
   if (pagesCount <= 3) {
     for (let i = 1; i <= pagesCount; i++) {
-      template.push(i);
+      templateItems.push(i);
     }
   } else if (activePage === 1 || activePage === 2) {
-    template = [1, 2, '...', pagesCount];
+    templateItems = [1, 2, '...', pagesCount];
   } else if (activePage === pagesCount || activePage === pagesCount - 1) {
-    template = [1, '...', pagesCount - 1, pagesCount];
+    templateItems = [1, '...', pagesCount - 1, pagesCount];
   } else {
-    template = [1, '...', activePage, '...', pagesCount];
+    templateItems = [1, '...', activePage, '...', pagesCount];
   }
 
-  return template;
+  return templateItems;
 };
 
 const getCurrentStrings = (currentTypes) => {
