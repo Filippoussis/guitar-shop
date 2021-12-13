@@ -2,12 +2,15 @@ import {SortDirection, GUITAR_TYPE} from './const';
 
 const sortGuitars = (items, direction, type) => {
   switch (direction) {
-    case SortDirection.ASCENDING:
+    case SortDirection.ASCENDING: {
       return items.slice().sort((item1, item2) => item1[type] - item2[type]);
-    case SortDirection.DESCENDING:
+    }
+    case SortDirection.DESCENDING: {
       return items.slice().sort((item1, item2) => item2[type] - item1[type]);
-    default:
+    }
+    default: {
       return items;
+    }
   }
 };
 
@@ -57,17 +60,21 @@ const getDiscount = (total, promoCode) => {
   const maxDiscount = total * 0.3;
 
   switch (promoCode) {
-    case 'GITARAHIT':
+    case 'GITARAHIT': {
       result = total * 0.9;
       break;
-    case 'SUPERGITARA':
+    }
+    case 'SUPERGITARA': {
       result = total - 700;
       break;
-    case 'GITARA2020':
+    }
+    case 'GITARA2020': {
       result = 3000 > maxDiscount ? total - maxDiscount : total - 3000;
       break;
-    default:
+    }
+    default: {
       return Math.round(result);
+    }
   }
 
   return Math.round(result);
