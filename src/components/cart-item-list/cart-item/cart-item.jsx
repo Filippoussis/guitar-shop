@@ -9,10 +9,9 @@ import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 import {addItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
 
 import {setNoBodyScroll, setBodyScroll} from '../../../utils';
+import {MIN_GUITAR_COUNT} from '../../../const';
 
 import './cart-item.scss';
-
-const MIN_GUITAR_COUNT = 1;
 
 const GUITAR_TYPE = {
   'acoustic': 'Aкустическая гитара',

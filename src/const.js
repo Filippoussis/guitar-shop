@@ -64,6 +64,8 @@ const BreadcrumbsList = {
 
 const KEY_CODE_ESCAPE = 27;
 
+const MIN_GUITAR_COUNT = 1;
+
 export {
   MENU_ROUTES,
   CATALOG_ROUTES,
@@ -77,4 +79,5 @@ export {
   DISCOUNT_CODES,
   BreadcrumbsList,
   KEY_CODE_ESCAPE,
+  MIN_GUITAR_COUNT,
 };

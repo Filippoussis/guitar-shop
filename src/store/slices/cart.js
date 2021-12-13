@@ -1,5 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
+
 import {getDiscount} from '../../utils';
+import {MIN_GUITAR_COUNT} from '../../const';
 
 const initialState = {
   data: [],
@@ -24,7 +26,7 @@ const cartSlice = createSlice({
 
       data.push({
         item: action.payload,
-        count: 1,
+        count: MIN_GUITAR_COUNT,
         sum: action.payload.price,
       });
     },
@@ -38,7 +40,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const foundItem = data.find(({item}) => item.id === id);
       const newCount = foundItem.count - 1;
-      if (newCount >= 1) {
+      if (newCount >= MIN_GUITAR_COUNT) {
         foundItem.count = newCount;
         foundItem.sum = foundItem.item.price * newCount;
       }
