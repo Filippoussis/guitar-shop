@@ -38,9 +38,7 @@ const setPaginationTemplate = (pagesCount, activePage) => {
 
 const getCurrentStrings = (currentTypes) => {
   const totalStrings = [];
-  for (const type of currentTypes) {
-    totalStrings.push(...GUITAR_TYPE[type].strings);
-  }
+  currentTypes.forEach((type) => totalStrings.push(...GUITAR_TYPE[type].strings));
 
   return Array.from(new Set(totalStrings));
 };
