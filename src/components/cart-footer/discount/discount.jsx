@@ -36,12 +36,15 @@ function Discount() {
       <p className="discount__title">Промокод на скидку</p>
       <p className="discount__text">Введите свой промокод, если он у вас есть.</p>
       <div className="discount__controls">
-        <input
-          className="discount__controls__input"
-          type="text"
-          ref={inputField}
-          onFocus={handleInputFocus}
-        />
+        <label htmlFor="promo-code">
+          <input
+            className="discount__controls__input"
+            id="promo-code"
+            type="text"
+            ref={inputField}
+            onFocus={handleInputFocus}
+          />
+        </label>
         <button className="discount__controls__button" onClick={handleButtonClick}>Применить купон</button>
       </div>
       {!isValidCode && <InvalidMessage />}

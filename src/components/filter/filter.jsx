@@ -95,20 +95,26 @@ function Filter() {
       <div className="guitar-price">
         <p className="guitar-price__legend">Цена, &#x20bd;</p>
         <div className="guitar-price__controls">
-          <input
-            className="guitar-price__input" type="text"
-            placeholder={minPrice.toLocaleString()}
-            value={fromPrice}
-            onChange={handleChangeFromPrice}
-            onBlur={handleBlurFromPrice}
-          />
-          <input
-            className="guitar-price__input" type="text"
-            placeholder={maxPrice.toLocaleString()}
-            value={toPrice}
-            onChange={handleChangeToPrice}
-            onBlur={handleBlurToPrice}
-          />
+          <label htmlFor="min-price">
+            <input
+              className="guitar-price__input" type="text"
+              id="min-price"
+              placeholder={minPrice.toLocaleString()}
+              value={fromPrice}
+              onChange={handleChangeFromPrice}
+              onBlur={handleBlurFromPrice}
+            />
+          </label>
+          <label htmlFor="max-price">
+            <input
+              className="guitar-price__input" type="text"
+              id="max-price"
+              placeholder={maxPrice.toLocaleString()}
+              value={toPrice}
+              onChange={handleChangeToPrice}
+              onBlur={handleBlurToPrice}
+            />
+          </label>
         </div>
       </div>
       <div className="guitar-type">
