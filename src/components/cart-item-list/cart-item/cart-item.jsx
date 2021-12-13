@@ -12,6 +12,8 @@ import {setNoBodyScroll, setBodyScroll} from '../../../utils';
 
 import './cart-item.scss';
 
+const MIN_GUITAR_COUNT = 1;
+
 const GUITAR_TYPE = {
   'acoustic': 'Aкустическая гитара',
   'electro': 'Электрогитара',
@@ -31,7 +33,7 @@ function CartItem({item, count, sum}) {
   };
 
   const handleDecrementButton = () => {
-    if (count === 1) {
+    if (count === MIN_GUITAR_COUNT) {
       dispatch(setActiveItem(item));
       setNoBodyScroll();
       return;
