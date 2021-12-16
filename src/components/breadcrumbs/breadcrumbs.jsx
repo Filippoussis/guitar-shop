@@ -1,19 +1,20 @@
 import React from 'react';
-import PropTypes, { string } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import './breadcrumbs.scss';
 
-function Breadcrumbs({list}) {
+function Breadcrumbs({list, className}) {
 
   const items = list.map((item) => <li className="breadcrumbs__item" key={item}>{item}</li>);
 
   return (
-    <ul className="breadcrumbs breadcrumbs--cart">{items}</ul>
+    <ul className={className}>{items}</ul>
   );
 }
 
 Breadcrumbs.propTypes = {
-  list: PropTypes.arrayOf(string).isRequired,
+  list: PropTypes.arrayOf(PropTypes.string).isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default Breadcrumbs;

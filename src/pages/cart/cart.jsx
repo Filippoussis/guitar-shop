@@ -25,7 +25,7 @@ function Cart() {
         <div className="main__wrapper main__wrapper--cart">
           <div className="main__inner">
             <h2 className="main__title">Корзина</h2>
-            <Breadcrumbs list={BreadcrumbsList.CART} />
+            <Breadcrumbs list={BreadcrumbsList.CART} className="breadcrumbs breadcrumbs--cart" />
             <div className="main__content main__content--cart">
               <CartItemList />
               {!isCartEmpty && <CartFooter />}

@@ -19,7 +19,7 @@ function Main() {
         <div className="main__wrapper">
           <div className="main__inner">
             <h2 className="main__title">Каталог гитар</h2>
-            <Breadcrumbs list={BreadcrumbsList.CATALOG} />
+            <Breadcrumbs list={BreadcrumbsList.CATALOG} className="breadcrumbs" />
             <div className="main__content">
               <Filter />
               <Sort />
