@@ -12,6 +12,7 @@ function Filter() {
   const dispatch = useDispatch();
   const {aggregatedPrice: {minPrice = '', maxPrice = ''}} = useSelector(selectSlice);
 
+
   const [fromPrice, setFromPriceState] = useState('');
   const [toPrice, setToPriceState] = useState('');
 
