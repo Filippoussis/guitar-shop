@@ -21,9 +21,9 @@ function Header() {
         {
           currentPathname !== AppRoute.ROOT
             ?
-              <Link to={AppRoute.ROOT} aria-label="Logo Guitar Shop" className="header__logo-link">
-                <Logo style={{color: 'black'}} />
-              </Link>
+            <Link to={AppRoute.ROOT} aria-label="Logo Guitar Shop" className="header__logo-link">
+              <Logo style={{color: 'black'}} />
+            </Link>
             : <Logo style={{color: 'black'}} />
         }
         <SiteMenu />
