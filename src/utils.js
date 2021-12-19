@@ -25,12 +25,28 @@ const setPaginationTemplate = (pagesCount, activePage) => {
     for (let i = 1; i <= pagesCount; i++) {
       templateItems.push(i);
     }
-  } else if (activePage === 1 || activePage === 2) {
+  } else if (activePage === 1) {
     templateItems = [1, 2, '...', pagesCount];
-  } else if (activePage === pagesCount || activePage === pagesCount - 1) {
+  } else if (activePage === 2) {
+    if (pagesCount === 4) {
+      templateItems = [1, 2, 3, pagesCount];
+    } else {
+      templateItems = [1, 2, 3, '...', pagesCount];
+    }
+  } else if (activePage === 3) {
+    if (pagesCount === 4) {
+      templateItems = [1, 2, 3, pagesCount];
+    } else if (pagesCount === 5) {
+      templateItems = [1, 2, 3, 4, pagesCount];
+    } else {
+      templateItems = [1, 2, 3, 4, '...', pagesCount];
+    }
+  } else if (activePage === pagesCount) {
     templateItems = [1, '...', pagesCount - 1, pagesCount];
+  } else if (activePage === pagesCount - 1) {
+    templateItems = [1, '...', pagesCount - 2, pagesCount - 1, pagesCount];
   } else {
-    templateItems = [1, '...', activePage, '...', pagesCount];
+    templateItems = [1, '...', activePage - 1, activePage, activePage + 1, '...', pagesCount];
   }
 
   return templateItems;
