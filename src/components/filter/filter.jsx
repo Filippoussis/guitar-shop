@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {filterGuitarType, filterStringsCount, setFromPrice, setToPrice, selectSlice} from '../../store/slices/guitars';
 
-import {getCurrentStrings, getValueNumber} from '../../utils';
+import {getValueNumber} from '../../utils';
 import {GUITAR_TYPE, GUITAR_STRINGS} from '../../const';
 
 import './filter.scss';
@@ -10,8 +10,7 @@ import './filter.scss';
 function Filter() {
 
   const dispatch = useDispatch();
-  const {aggregatedPrice: {minPrice = '', maxPrice = ''}} = useSelector(selectSlice);
-
+  const {aggregatedPrice: {minPrice = '', maxPrice = ''}, disabledStrings, checkedStrings} = useSelector(selectSlice);
 
   const [fromPrice, setFromPriceState] = useState('');
   const [toPrice, setToPriceState] = useState('');
@@ -87,9 +86,6 @@ function Filter() {
     }));
   };
 
-  const currentTypes = Object.entries(typeState).filter(([_, value]) => value === true).map(([key]) => key);
-  const currentStrings = getCurrentStrings(currentTypes);
-
   return (
     <section className="guitars-filter">
       <h3>Фильтр</h3>
@@ -141,7 +137,8 @@ function Filter() {
           {
             GUITAR_STRINGS.map((item) => {
 
-              const isDisabled = !currentStrings.includes(item);
+              const isDisabled = disabledStrings.includes(item);
+              const isChecked = checkedStrings.includes(item);
 
               return (
                 <label key={item} htmlFor={item}>
@@ -149,6 +146,7 @@ function Filter() {
                     className="guitar-strings__input visually-hidden"
                     type="checkbox" id={item} name={item} onChange={handleChangeStringsCount}
                     disabled={isDisabled}
+                    checked={isChecked}
                   />
                   <span className="guitar-strings__checkbox"></span>
                   <span className="guitar-strings__label">{item}</span>

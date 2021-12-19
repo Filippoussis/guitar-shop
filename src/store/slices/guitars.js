@@ -1,15 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {guitarsMockData} from '../../mock/mock';
 
-import {SortType, SortDirection, GUITARS_STEP} from '../../const';
+import {SortType, SortDirection, GUITARS_STEP, GUITAR_STRINGS} from '../../const';
 import {sortGuitars, setPaginationTemplate} from '../../utils';
 
 const initialState = {
   data: guitarsMockData,
   sortDirection: SortDirection.ASCENDING,
   sortType: '',
-  types: [],
-  strings: [],
+  filterTypes: [],
+  filterStrings: [],
   activePage: 1,
   fromPrice: 0,
   toPrice: 0,
@@ -31,12 +31,12 @@ const guitarsSlice = createSlice({
     },
 
     filterGuitarType: (state, action) => {
-      state.types = action.payload;
+      state.filterTypes = action.payload;
       state.activePage = 1;
     },
 
     filterStringsCount: (state, action) => {
-      state.strings = action.payload;
+      state.filterStrings = action.payload;
       state.activePage = 1;
     },
 
@@ -56,14 +56,34 @@ const guitarsSlice = createSlice({
 
 const guitarsFilter = ({guitars}) => {
   let result = guitars.data;
+  const disabledStrings = [];
+  let checkedStrings = [];
 
+  if (guitars.filterTypes.length !== 0) {
+    result = result.filter(({type}) => guitars.filterTypes.includes(type));
+    const aggregatedGuitars = result.reduce((acc, curr) => ({
+      ...acc,
+      [curr.strings]: (acc[curr.strings] ?? 0) + 1,
+    }), {});
 
-  if (guitars.types.length !== 0) {
-    result = result.filter(({type}) => guitars.types.includes(type));
+    const aggregatedStrings = Object.entries(aggregatedGuitars).map(([key]) => Number(key));
+    GUITAR_STRINGS.forEach((item) => {
+      if (!aggregatedStrings.includes(item)) {
+        disabledStrings.push(item);
+      }
+    });
   }
 
-  if (guitars.strings.length !== 0) {
-    result = result.filter(({strings}) => guitars.strings.includes(strings));
+  if (guitars.filterStrings.length !== 0) {
+    const newResult = result.filter(({strings}) => guitars.filterStrings.includes(strings));
+    result = newResult.length !== 0 ? newResult : result;
+
+    const aggregatedGuitars = result.reduce((acc, curr) => ({
+      ...acc,
+      [curr.strings]: (acc[curr.strings] ?? 0) + 1,
+    }), {});
+
+    checkedStrings = Object.entries(aggregatedGuitars).map(([key]) => Number(key));
   }
 
   if (guitars.fromPrice !== 0) {
@@ -74,19 +94,27 @@ const guitarsFilter = ({guitars}) => {
     result = result.filter(({price}) => price >= guitars.fromPrice && price <= guitars.toPrice);
   }
 
-  return result;
+  return {
+    result,
+    disabledStrings,
+    checkedStrings,
+  };
 };
 
 const guitarsSort = (state) => {
-  const filteredGuitars = guitarsFilter(state);
+  const {result, disabledStrings, checkedStrings} = guitarsFilter(state);
   const currentSortDirection = state.guitars.sortDirection;
   const currentSortType = state.guitars.sortType;
 
-  return currentSortType !== '' ? sortGuitars(filteredGuitars, currentSortDirection, currentSortType) : filteredGuitars;
+  return {
+    guitarsList: currentSortType !== '' ? sortGuitars(result, currentSortDirection, currentSortType) : result,
+    disabledStrings,
+    checkedStrings,
+  };
 };
 
 const selectSlice = (state) => {
-  const guitarsList = guitarsSort(state);
+  const {guitarsList, disabledStrings, checkedStrings} = guitarsSort(state);
   const pagesCount = Math.ceil(guitarsList.length / GUITARS_STEP);
   const startIndex = (state.guitars.activePage - 1) * GUITARS_STEP;
   let aggregatedPrice = {};
@@ -105,6 +133,8 @@ const selectSlice = (state) => {
   return {
     guitarsSlice: guitarsList.slice(startIndex, startIndex + GUITARS_STEP),
     aggregatedPrice,
+    disabledStrings,
+    checkedStrings,
     pagination: {
       pagesCount,
       template: setPaginationTemplate(pagesCount, state.guitars.activePage),
