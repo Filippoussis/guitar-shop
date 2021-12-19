@@ -8,7 +8,7 @@ import ModalDeleteFromCart from './modal-delete-from-cart/modal-delete-from-cart
 
 import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 
-import {addItem, decrementItem, setActiveItem, selectActiveItem} from '../../../store/slices/cart';
+import {addItem, decrementItem, setActiveItem, selectActiveItem, updateCountItem} from '../../../store/slices/cart';
 
 import {setNoBodyScroll, setBodyScroll} from '../../../utils';
 import {MIN_GUITAR_COUNT} from '../../../const';
@@ -44,6 +44,15 @@ function CartItem({item, count, sum}) {
     setBodyScroll();
   };
 
+  const handleChangeInput = (evt) => {
+    const updatedData = {
+      id: item.id,
+      value: evt.target.value < 1 ? 1 : evt.target.value,
+    };
+
+    dispatch(updateCountItem(updatedData));
+  };
+
   return (
     <>
       <article className="cart-item">
@@ -77,7 +86,12 @@ function CartItem({item, count, sum}) {
           <p className="cart-item__price cart-item__price--alone">{price.toLocaleString()} &#x20bd;</p>
           <div className="cart-item-counter">
             <button className="cart-item-counter__button" onClick={handleDecrementButton} aria-label="decrement-count">-</button>
-            <span className="cart-item-counter__value">{count}</span>
+            <input
+              className="cart-item-counter__input"
+              type="text"
+              value={count}
+              onChange={handleChangeInput}
+            />
             <button className="cart-item-counter__button" onClick={() => dispatch(addItem(item))} aria-label="increment-count">+</button>
           </div>
           <p className="cart-item__price cart-item__price--total">{sum.toLocaleString()} &#x20bd;</p>

@@ -46,6 +46,14 @@ const cartSlice = createSlice({
       }
     },
 
+    updateCountItem: ({data}, action) => {
+      const {id, value} = action.payload;
+      const foundItem = data.find(({item}) => item.id === id);
+      const newCount = value;
+      foundItem.count = newCount;
+      foundItem.sum = foundItem.item.price * newCount;
+    },
+
     setActiveItem: (state, action) => {
       state.activeItem = action.payload;
     },
@@ -71,6 +79,6 @@ const selectCartItemCount = (state) => state.cart.data.length;
 
 export {selectSlice, selectActiveItem, selectSuccess, selectWithDiscount, selectIsCartEmpty, selectCartItemCount};
 
-export const {addItem, deleteItem, decrementItem, setActiveItem, setSuccess, setPromoCode} = cartSlice.actions;
+export const {addItem, deleteItem, decrementItem, setActiveItem, setSuccess, setPromoCode, updateCountItem} = cartSlice.actions;
 
 export default cartSlice.reducer;
