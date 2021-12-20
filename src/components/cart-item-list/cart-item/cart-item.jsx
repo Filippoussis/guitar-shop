@@ -49,7 +49,7 @@ function CartItem({item, count, sum}) {
 
     const updatedData = {
       id: item.id,
-      value: target < 1 ? 1 : target,
+      value: target,
     };
 
     dispatch(updateCountItem(updatedData));
