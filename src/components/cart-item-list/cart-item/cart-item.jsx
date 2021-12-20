@@ -10,7 +10,7 @@ import {ReactComponent as DeleteButton} from '../../../images/icon/close.svg';
 
 import {addItem, decrementItem, setActiveItem, selectActiveItem, updateCountItem} from '../../../store/slices/cart';
 
-import {setNoBodyScroll, setBodyScroll} from '../../../utils';
+import {setNoBodyScroll, setBodyScroll, getValueNumber} from '../../../utils';
 import {MIN_GUITAR_COUNT} from '../../../const';
 
 import './cart-item.scss';
@@ -45,9 +45,11 @@ function CartItem({item, count, sum}) {
   };
 
   const handleChangeInput = (evt) => {
+    const target = getValueNumber(evt.target.value);
+
     const updatedData = {
       id: item.id,
-      value: evt.target.value < 1 ? 1 : evt.target.value,
+      value: target < 1 ? 1 : target,
     };
 
     dispatch(updateCountItem(updatedData));
